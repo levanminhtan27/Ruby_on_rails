@@ -1,0 +1,40 @@
+<%= render 'header', user: @user %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12 text-center">
+      <h1 class="title">List Users</h1>
+    </div>
+    <div class="col-lg-12 form-group">
+      <h3><label for="">Welcome</label>
+      <%= link_to current_user.name, user_path(current_user) %></h3>
+    </div>
+    <table class="table table-striped" id="products" >
+    
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Address</th>
+          <th></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @users.each do |user| %>
+          <tr>
+            <td><%= user.id %></td>
+            <td><%= user.name %></td>
+            <td><%= user.email %></td>
+            <td><%= user.address %></td>
+            <td><%= link_to 'Show', user %></td>
+            <td><%= link_to 'Edit', edit_user_path(user) %></td>
+            <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Muốn xóa hả?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+      
+    </table>
+  </div>
+</div>

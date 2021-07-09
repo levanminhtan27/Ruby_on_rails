@@ -1,0 +1,55 @@
+    <section class="content" style="min-height: auto;">
+      <% flash.each do |key, value| %>
+        <div class="row">
+          <div class="alert alert-<%= key %>">
+            <%= value %>
+          </div>
+        </div>
+      <% end %>
+    </section>
+
+
+
+
+<p id="notice"><%= notice %></p>
+
+<h1 class="text-center">Users</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>email</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= user.email %></td>
+        <td><%= link_to 'Show', user %></td>
+        <td><%= link_to 'Edit', edit_user_path(user) %></td>
+        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New User', new_user_path %>
+
+
+
+
+
+<div class="logout ">
+<%= link_to "Logout", logout_path, method: :delete,class:"btn btn-primary" %> 
+</div>
+
+<div class="text-center">
+<label>welcom <%= @user.name %></label>
+</div>
