@@ -1,11 +1,21 @@
 <div class="header">
-      <a><%= link_to 'logo', homes_path,class:"logo" %>
-    </a>
-      <div class="header-right">
-        
-        <a><%= link_to 'Home', homes_path,class:"active" %>.
-
-        <a><%= link_to 'Login', sessions_new_path %></a>
-        <a><%= link_to 'Create Account', new_user_path%></a>
-      </div>
+  <a><%= link_to "logođây", users_path,class:"logo" %></a>
+  <div class="header-right">
+    <% if logged_in? %>
+        <div class="dropdown">
+        <button class="dropbtn">Dropdown</button>
+            <div class="dropdown-content">
+                <a><%= link_to "List user", users_path,style:"margin-left: -22px;" %></a>
+                <a><%= link_to "List micropos", microposts_path %></a>
+                <a><%= link_to "Log out", logout_path, method: :delete %></a>
+            </div>
+        </div>
+    <% else %>
+           <div class="header-right">
+                <a><%= link_to "home", root_path %></a>
+                <a><%= link_to "Log in", sessions_new_path %></a>
+                <a><%= link_to "Create user", users_path %></a>
+           </div>
+    <% end %>      
+  </div>
 </div>

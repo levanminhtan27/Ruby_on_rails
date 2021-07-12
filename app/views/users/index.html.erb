@@ -1,4 +1,4 @@
-<%= render 'header', user: @user %>
+<%= render 'layouts/header' %>
 
 <div class="container">
   <div class="row">
@@ -9,7 +9,7 @@
       <h3><label for="">Welcome</label>
       <%= link_to current_user.name, user_path(current_user) %></h3>
     </div>
-    <table class="table table-striped" id="products" >
+    <table class="table table-striped"  >
     
       <thead>
         <tr>

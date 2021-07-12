@@ -1,0 +1,28 @@
+
+<%= form_with(model: micropost,html: {class: "form-horizontal"}  ) do |form| %>
+
+<div class="row">
+  <div class="col-lg-offset-2">
+
+      <div class="form-group">
+        <%= form.label :content, "Content", class: "col-md-2 control-label" %>
+        <div class="col-md-5">
+          <%= form.text_field :content, class: "form-control", placeholder: "Enter content" %>
+        </div>
+      </div>
+
+      <div class="form-group" >
+        <%= form.label :user_id, "User", class: "col-md-2 control-label" %>
+        <div class="col-md-5" >
+          <%= form.collection_select :user_id, User.order(:id), :id, :name%>
+        </div>
+      </div>
+      
+      <div class="col-lg-offset-2 row ">
+      <%= form.submit  class: "btn btn-success" %>
+      <%= link_to 'Back', microposts_path ,class: "btn btn-success" %>
+      </div>
+  </div>
+</div>
+
+<% end %>

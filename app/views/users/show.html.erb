@@ -1,11 +1,9 @@
-<%= render 'header', user: @user %>
-
-<p id="notice"><%= notice %></p>
+<%= render 'layouts/header' %>
 
 
-<div class="text-center">
-<h2> <label>Hello: <%= @user.name %></label>
-</h2>
-<%= link_to "List Users", users_path %>
+
+<div class="text-center" >
+    <h2> <label>Hello: <%= @user.name %></label></h2>
+    <%= link_to "List Users", users_path %>
 </div>
 

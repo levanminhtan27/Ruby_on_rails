@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i[ show edit update destroy ]
+  # người dùng chỉ được create user  khi không đăng nhập
   skip_before_action :require_login, only: [:new, :create]
 
   # GET /users or /users.json
@@ -27,7 +28,7 @@ class UsersController < ApplicationController
     if @user.save
       flash[:success] = "Đăng ký thành công"
       redirect_to users_path
-    else
+    else  
       flash[:success] = "Đăng kí thất bại"
       render :new
     end
